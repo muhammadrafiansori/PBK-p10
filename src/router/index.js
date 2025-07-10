@@ -5,6 +5,8 @@ import { createRouter, createWebHistory } from 'vue-router';
 import Home from '../views/Home.vue';
 import FilmList from '../views/FilmList.vue';
 import FilmDetail from '../views/FilmDetail.vue';
+import AddFilm from '../views/AddFilm.vue';
+import EditFilm from '../views/EditFilm.vue';
 import About from '../views/About.vue';
 import NotFound from '../views/NotFound.vue';
 
@@ -20,11 +22,21 @@ const routes = [
     component: FilmList,
   },
   {
+    path: '/films/add',
+    name: 'AddFilm',
+    component: AddFilm,
+  },
+  {
     // Routing dinamis untuk detail film, :id akan menjadi parameter
     path: '/films/:id',
     name: 'FilmDetail',
     component: FilmDetail,
     props: true, // Meneruskan parameter ID sebagai prop ke komponen FilmDetail
+  },
+  {
+    path: '/films/:id/edit',
+    name: 'EditFilm',
+    component: EditFilm,
   },
   {
     path: '/about',

@@ -1,127 +1,228 @@
 <template>
-  <div class="container">
-    <div class="header-section">
-      <h1>Daftar Film Populer</h1>
+  <div class="film-list-container">
+    <h1 class="page-title">Daftar Film</h1>
+    <div v-if="loading" class="loading">Memuat data film...</div>
+    <div v-else-if="error" class="error-message">{{ error }}</div>
+    <div v-else>
+      <div v-if="films.length === 0" class="empty-state">
+        <span class="empty-icon">🎬</span>
+        <p>Belum ada film yang tersedia.</p>
+        <router-link to="/films/add" class="button add-button">+ Tambah Film</router-link>
+      </div>
+      <div v-else class="film-grid">
+        <div v-for="film in films" :key="film.id" class="film-card">
+          <div class="poster-wrapper">
+            <img :src="film.poster || 'https://via.placeholder.com/300x450/cccccc/222222?text=No+Image'" :alt="film.title" class="film-poster" />
+          </div>
+          <div class="film-info">
+            <h2 class="film-title">{{ film.title }}</h2>
+            <div class="film-meta">
+              <span class="film-year">{{ film.year }}</span>
+              <span class="film-genre">{{ film.genre }}</span>
+            </div>
+            <div class="film-rating">⭐ {{ film.rating }}/10</div>
+            <router-link :to="`/films/${film.id}`" class="button detail-button">Detail</router-link>
+          </div>
+        </div>
+      </div>
+      <div class="add-film-fab">
+        <router-link to="/films/add" class="fab">+</router-link>
+      </div>
     </div>
-
-    <ul class="film-list">
-      <li v-for="film in films" :key="film.id" class="film-item">
-        <h3 class="film-title">{{ film.title }} ({{ film.year }})</h3>
-        <router-link :to="`/films/${film.id}`" class="button detail-button">Lihat Detail</router-link>
-      </li>
-    </ul>
   </div>
 </template>
 
-<script>
-export default {
-  name: 'FilmList',
-  data() {
-    return {
-      films: [
-        { id: 1, title: 'Inception', year: 2010, description: 'Seorang pencuri yang masuk ke mimpi orang lain untuk mencuri rahasia.' },
-        { id: 2, title: 'The Matrix', year: 1999, description: 'Seorang programmer komputer menemukan bahwa realitas hanyalah simulasi.' },
-        { id: 3, title: 'Interstellar', year: 2014, description: 'Sekelompok penjelajah melakukan perjalanan melalui lubang cacing untuk mencari rumah baru bagi umat manusia.' },
-        { id: 4, title: 'Pulp Fiction', year: 1994, description: 'Beberapa kisah kriminal yang saling terkait di Los Angeles.' }
-      ],
-    };
-  },
-};
+<script setup>
+import { onMounted } from 'vue'
+import { useFilmStore } from '../stores/filmStore'
+import { storeToRefs } from 'pinia'
+
+const filmStore = useFilmStore()
+const { films, loading, error } = storeToRefs(filmStore)
+
+onMounted(() => {
+  filmStore.fetchFilms()
+})
 </script>
 
 <style scoped>
-.container {
-  max-width: 900px; /* Batasi lebar container */
-  margin: 20px auto; /* Tengahkan container */
-  padding: 20px;
-  background-color: #ffffff;
-  border-radius: 8px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+.film-list-container {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #e3f0ff 0%, #f8fbff 100%);
+  padding: 40px 0 60px 0;
 }
-.header-section {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 30px;
-  padding-bottom: 15px;
-  border-bottom: 1px solid #eee;
-}
-h1 {
-  color: #2c3e50;
+.page-title {
+  text-align: center;
+  color: #1976d2;
   font-size: 2.2em;
-  margin: 0;
-  text-align: center; /* Tengahkan judul di dalam header */
-  flex-grow: 1;
+  font-weight: 800;
+  margin-bottom: 32px;
+  letter-spacing: 1px;
 }
-
-/* Styling untuk tombol */
-.button {
-  padding: 10px 20px;
-  border: none;
-  border-radius: 6px;
-  cursor: pointer;
-  text-decoration: none;
-  font-size: 0.95em;
+.loading {
+  text-align: center;
+  color: #1976d2;
+  font-size: 1.1em;
+  margin-top: 60px;
+}
+.error-message {
+  background: #f8d7da;
+  color: #721c24;
+  padding: 16px;
+  border-radius: 8px;
+  text-align: center;
+  margin: 40px auto;
+  max-width: 400px;
   font-weight: 600;
-  transition: background-color 0.3s ease, transform 0.2s ease;
-  display: inline-flex;
+}
+.film-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 32px;
+  padding: 0 32px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.film-card {
+  background: #fff;
+  border-radius: 18px;
+  box-shadow: 0 4px 18px rgba(25, 118, 210, 0.10), 0 1.5px 6px rgba(0,0,0,0.04);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.18s, box-shadow 0.18s;
+  position: relative;
+}
+.film-card:hover {
+  transform: translateY(-6px) scale(1.025);
+  box-shadow: 0 8px 32px rgba(25, 118, 210, 0.16), 0 2px 8px rgba(0,0,0,0.06);
+}
+.poster-wrapper {
+  width: 100%;
+  aspect-ratio: 2/3;
+  background: #e3f0ff;
+  display: flex;
   align-items: center;
   justify-content: center;
-  gap: 5px;
 }
-.button:hover {
-  transform: translateY(-2px);
+.film-poster {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-bottom: 1px solid #e3f0ff;
 }
-.detail-button {
-  background-color: #28a745; /* Hijau */
-  color: white;
-}
-.detail-button:hover {
-  background-color: #218838;
-}
-
-/* Daftar film */
-.film-list {
-  list-style: none;
-  padding: 0;
-  margin-top: 30px;
-}
-.film-item {
+.film-info {
+  padding: 18px 16px 20px 16px;
   display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background-color: #fcfcfc;
-  border: 1px solid #e0e0e0;
-  padding: 20px 25px;
-  margin-bottom: 15px;
-  border-radius: 8px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.06);
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
-.film-item:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 6px 16px rgba(0,0,0,0.1);
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 8px;
 }
 .film-title {
-  margin: 0;
-  color: #007bff;
-  font-size: 1.4em;
+  color: #1a237e;
+  font-size: 1.18em;
   font-weight: 700;
+  margin: 0 0 2px 0;
 }
-
-/* Responsif dasar */
-@media (max-width: 768px) {
-  .film-item {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 15px;
+.film-meta {
+  color: #1976d2;
+  font-size: 0.98em;
+  display: flex;
+  gap: 12px;
+  margin-bottom: 2px;
+}
+.film-rating {
+  color: #ff9800;
+  font-weight: 700;
+  font-size: 1em;
+  margin-bottom: 8px;
+}
+.button.detail-button {
+  background: #1976d2;
+  color: #fff;
+  border: none;
+  border-radius: 7px;
+  padding: 8px 20px;
+  font-size: 1em;
+  font-weight: 700;
+  margin-top: 8px;
+  text-decoration: none;
+  transition: background 0.18s, color 0.18s, transform 0.18s;
+  box-shadow: 0 1.5px 6px rgba(25, 118, 210, 0.08);
+}
+.button.detail-button:hover {
+  background: #1565c0;
+  color: #fff;
+  transform: translateY(-2px) scale(1.04);
+}
+.add-film-fab {
+  position: fixed;
+  right: 32px;
+  bottom: 32px;
+  z-index: 10;
+}
+.fab {
+  background: #1976d2;
+  color: #fff;
+  font-size: 2.1em;
+  border-radius: 50%;
+  width: 56px;
+  height: 56px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 18px rgba(25, 118, 210, 0.18);
+  text-decoration: none;
+  transition: background 0.18s, transform 0.18s;
+}
+.fab:hover {
+  background: #1565c0;
+  transform: scale(1.08);
+}
+.empty-state {
+  text-align: center;
+  margin-top: 80px;
+  color: #1976d2;
+}
+.empty-icon {
+  font-size: 3em;
+  display: block;
+  margin-bottom: 12px;
+}
+.button.add-button {
+  background: #1976d2;
+  color: #fff;
+  border: none;
+  border-radius: 7px;
+  padding: 10px 28px;
+  font-size: 1.1em;
+  font-weight: 700;
+  margin-top: 18px;
+  text-decoration: none;
+  transition: background 0.18s, color 0.18s, transform 0.18s;
+  box-shadow: 0 1.5px 6px rgba(25, 118, 210, 0.08);
+}
+.button.add-button:hover {
+  background: #1565c0;
+  color: #fff;
+  transform: translateY(-2px) scale(1.04);
+}
+@media (max-width: 700px) {
+  .film-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 18px;
+    padding: 0 8px;
   }
-  .film-title {
-    margin-bottom: 10px;
+  .add-film-fab {
+    right: 16px;
+    bottom: 16px;
   }
-  .button {
-    width: 100%; /* Tombol detail mengisi lebar penuh di mobile */
-    text-align: center;
+}
+@media (max-width: 480px) {
+  .film-grid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+    padding: 0 2px;
   }
 }
 </style>

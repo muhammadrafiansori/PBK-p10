@@ -6,14 +6,24 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "test": "vitest",
+    "test:ui": "vitest --ui",
+    "test:run": "vitest run",
+    "db": "json-server --watch db.json --port 3000"
   },
   "dependencies": {
+    "pinia": "^2.3.1",
     "vue": "^3.5.13",
     "vue-router": "^4.5.1"
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "^5.2.3",
-    "vite": "^6.3.5"
+    "@vitest/ui": "^2.1.8",
+    "@vue/test-utils": "^2.4.4",
+    "jsdom": "^25.0.1",
+    "json-server": "^1.0.0-beta.3",
+    "vite": "^6.3.5",
+    "vitest": "^2.1.8"
   }
 }

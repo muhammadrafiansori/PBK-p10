@@ -1,36 +1,94 @@
 <template>
-  <div class="container about-page">
-    <h1>Tentang Aplikasi Ini</h1>
-    <p>Aplikasi ini adalah contoh sederhana sistem informasi film statis yang dibuat menggunakan Vue.js dan Vue Router.</p>
-    <p>Tujuannya adalah untuk mendemonstrasikan analisis studi kasus dan penerapan routing dalam proyek Vue.js dengan data yang di-hardcode.</p>
-    <p>Dibuat sebagai bagian dari tugas Anda.</p>
+  <div class="about-bg">
+    <div class="about-card">
+      <div class="icon-wrapper">
+        <svg class="main-icon" viewBox="0 0 48 48" width="56" height="56" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect width="48" height="48" rx="12" fill="#e3f0ff"/>
+          <rect x="10" y="22" width="28" height="14" rx="3" fill="#1976d2"/>
+          <rect x="10" y="14" width="28" height="8" rx="2" fill="#90caf9"/>
+          <rect x="12" y="16" width="6" height="4" rx="1" fill="#1976d2"/>
+          <rect x="20" y="16" width="6" height="4" rx="1" fill="#1976d2"/>
+          <rect x="28" y="16" width="6" height="4" rx="1" fill="#1976d2"/>
+        </svg>
+      </div>
+      <h1 class="about-title">Tentang Aplikasi Ini</h1>
+      <div class="about-desc">
+        <p>Aplikasi ini adalah contoh sederhana sistem informasi film statis yang dibuat menggunakan Vue.js dan Vue Router.</p>
+        <p>Tujuannya adalah untuk mendemonstrasikan analisis studi kasus dan penerapan routing dalam proyek Vue.js dengan data yang di-hardcode.</p>
+        <p>Dibuat sebagai bagian dari tugas Anda.</p>
+      </div>
+    </div>
   </div>
 </template>
 
 <script>
 export default {
   name: 'About',
-};
+}
 </script>
 
 <style scoped>
-.about-page {
-  max-width: 800px;
-  margin: 20px auto;
-  padding: 20px;
-  background-color: #ffffff;
-  border-radius: 8px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+.about-bg {
+  min-height: 100vh;
+  width: 100vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: radial-gradient(circle at 50% 30%, #e3f0ff 0%, #f8fbff 60%, #f4f7fa 100%);
 }
-h1 {
-  color: #2c3e50;
-  margin-bottom: 20px;
+.about-card {
+  background: #fff;
+  border-radius: 28px;
+  box-shadow: 0 8px 40px rgba(25, 118, 210, 0.13), 0 1.5px 8px rgba(0,0,0,0.04);
+  padding: 48px 44px 44px 44px;
+  max-width: 600px;
+  width: 100%;
   text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
-p {
-  line-height: 1.8;
-  color: #555;
-  margin-bottom: 10px;
-  text-align: justify;
+.icon-wrapper {
+  margin-bottom: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.main-icon {
+  width: 56px;
+  height: 56px;
+  display: block;
+}
+.about-title {
+  color: #1a237e;
+  font-size: 2em;
+  font-weight: 900;
+  margin: 0 0 18px 0;
+  letter-spacing: 0.5px;
+}
+.about-desc {
+  color: #222;
+  font-size: 1.13em;
+  text-align: left;
+  margin: 0 auto;
+  max-width: 480px;
+  line-height: 1.7;
+}
+.about-desc p {
+  margin-bottom: 12px;
+}
+@media (max-width: 700px) {
+  .about-card {
+    padding: 24px 8px 24px 8px;
+    max-width: 98vw;
+  }
+  .about-title {
+    font-size: 1.1em;
+  }
+  .about-desc {
+    font-size: 0.98em;
+    max-width: 98vw;
+  }
 }
 </style>
