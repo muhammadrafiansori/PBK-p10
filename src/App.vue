@@ -3,7 +3,7 @@
     <nav class="main-nav">
       <div class="nav-logo">
         <span class="logo-icon">🎬</span>
-        <span class="logo-text">PBK Movie</span>
+        <span class="logo-text">Poys Movie</span>
       </div>
       <div class="nav-links">
         <router-link to="/" class="nav-item">Beranda</router-link>

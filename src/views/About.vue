@@ -13,9 +13,13 @@
       </div>
       <h1 class="about-title">Tentang Aplikasi Ini</h1>
       <div class="about-desc">
-        <p>Aplikasi ini adalah contoh sederhana sistem informasi film statis yang dibuat menggunakan Vue.js dan Vue Router.</p>
-        <p>Tujuannya adalah untuk mendemonstrasikan analisis studi kasus dan penerapan routing dalam proyek Vue.js dengan data yang di-hardcode.</p>
-        <p>Dibuat sebagai bagian dari tugas Anda.</p>
+        <p>Poys Movie adalah aplikasi web sederhana yang berfungsi sebagai sistem informasi film. Aplikasi ini dikembangkan menggunakan Vue.js dan Vue Router sebagai bagian dari pembelajaran pemrograman berbasis komponen dan penerapan routing.</p>
+        <p>Tujuan utama dari aplikasi ini adalah untuk mendemonstrasikan:</p>
+        <ul>
+          <li>Implementasi routing antar halaman menggunakan Vue Router.</li>
+          <li>Struktur komponen dalam Vue.js.</li>
+          <li>Penyajian data film secara statis melalui pendekatan hardcoded.</li>
+        </ul>
       </div>
     </div>
   </div>

@@ -7,8 +7,8 @@
       "director": "Frank Darabont",
       "genre": "Drama",
       "rating": 9.3,
-      "description": "Two imprisoned men bond over a number of years, finding solace and eventual redemption through acts of common decency.",
-      "poster": "https://via.placeholder.com/300x450/0066cc/ffffff?text=Shawshank"
+      "description": "The Shawshank Redemption (1994) adalah film drama yang mengisahkan tentang Andy Dufresne, seorang bankir yang dijatuhi hukuman penjara seumur hidup karena dituduh membunuh istrinya dan kekasihnya — meskipun ia bersikeras tidak bersalah. Di dalam Penjara Shawshank, ia menjalin persahabatan erat dengan narapidana bernama Red, dan perlahan menunjukkan bahwa harapan dan kebebasan bisa ditemukan bahkan di tempat paling kelam sekalipun.",
+      "poster": "https://images-cdn.ubuy.co.id/6351416337e9de157a371824-shawshank-redemption-movie-poster-us.jpg"
     },
     {
       "id": "2",
@@ -17,7 +17,7 @@
       "director": "Francis Ford Coppola",
       "genre": "Crime",
       "rating": 9.2,
-      "description": "The aging patriarch of an organized crime dynasty transfers control of his clandestine empire to his reluctant son.",
+      "description": "The Godfather (1972) adalah film kriminal legendaris yang menceritakan kisah keluarga mafia Corleone di Amerika. Dipimpin oleh Vito Corleone, keluarga ini menghadapi berbagai konflik internal dan eksternal dalam dunia kejahatan terorganisir. Ketika Vito mulai melemah, anaknya Michael Corleone, yang awalnya enggan terlibat, perlahan berubah menjadi sosok pemimpin kejam dan cerdas. Film ini menggambarkan kekuasaan, loyalitas, dan kehancuran dalam dunia mafia.",
       "poster": "https://images-cdn.ubuy.co.id/63524655c36b157bc37548f5-poster-stop-online-the-godfather-movie.jpg"
     },
     {
@@ -27,8 +27,8 @@
       "director": "Quentin Tarantino",
       "genre": "Crime",
       "rating": 8.9,
-      "description": "The lives of two mob hitmen, a boxer, a gangster and his wife, and a pair of diner bandits intertwine in four tales of violence and redemption.",
-      "poster": "https://via.placeholder.com/300x450/ff8c00/ffffff?text=Pulp+Fiction"
+      "description": "Pulp Fiction (1994) adalah film kriminal bergaya non-linear karya Quentin Tarantino yang menggabungkan beberapa kisah yang saling berkaitan. Film ini mengikuti kehidupan dua pembunuh bayaran, Vincent Vega dan Jules Winnfield, bos mereka Marsellus Wallace, petinju bernama Butch Coolidge, serta berbagai karakter unik lainnya. Dikenal karena dialognya yang tajam, adegan ikonik, dan struktur cerita yang tidak biasa, Pulp Fiction dianggap sebagai salah satu film paling berpengaruh dalam sejarah perfilman modern.",
+      "poster": "https://images-cdn.ubuy.co.id/67b2bc1dda4b0a418b0b973b-pulp-fiction-movie-poster-16x24-poster.jpg"
     },
     {
       "id": "4",
@@ -37,8 +37,8 @@
       "director": "Christopher Nolan",
       "genre": "Action",
       "rating": 9,
-      "description": "When the menace known as the Joker wreaks havoc and chaos on the people of Gotham, Batman must accept one of the greatest psychological and physical tests of his ability to fight injustice.",
-      "poster": "https://via.placeholder.com/300x450/000000/ffffff?text=Dark+Knight"
+      "description": "The Dark Knight (2008) adalah film superhero gelap dan intens yang disutradarai oleh Christopher Nolan. Film ini melanjutkan kisah Bruce Wayne sebagai Batman, yang kini harus menghadapi musuh baru yang kacau dan berbahaya: Joker. Dengan ancaman kekacauan di seluruh Gotham, Batman harus menghadapi dilema moral yang berat demi melindungi kota dan orang-orang yang ia cintai. Penampilan legendaris Heath Ledger sebagai Joker menjadikan film ini salah satu karya paling berkesan dalam genre superhero.",
+      "poster": "https://m.media-amazon.com/images/M/MV5BMTMxNTMwODM0NF5BMl5BanBnXkFtZTcwODAyMTk2Mw@@._V1_FMjpg_UX1000_.jpg"
     },
     {
       "id": "5",
@@ -47,8 +47,8 @@
       "director": "Christopher Nolan",
       "genre": "Sci-Fi",
       "rating": 8.8,
-      "description": "A thief who steals corporate secrets through the use of dream-sharing technology is given the inverse task of planting an idea into the mind of a C.E.O.",
-      "poster": "https://via.placeholder.com/300x450/4169e1/ffffff?text=Inception"
+      "description": "Inception (2010) adalah film fiksi ilmiah dan aksi yang disutradarai oleh Christopher Nolan. Film ini mengikuti kisah Dom Cobb, seorang pencuri profesional yang memiliki kemampuan untuk menyusup ke dalam mimpi orang lain dan mencuri rahasia dari alam bawah sadar mereka. Ia ditugaskan dalam misi yang lebih sulit: menanamkan ide ke dalam pikiran targetnya — sebuah proses yang disebut inception. Dengan realitas dan mimpi yang saling tumpang tindih, Cobb dan timnya harus berpacu melawan waktu dan logika.",
+      "poster": "https://upload.wikimedia.org/wikipedia/id/9/91/Inception_poster.jpg"
     }
   ],
   "users": [

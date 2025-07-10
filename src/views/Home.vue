@@ -11,7 +11,7 @@
           <rect x="28" y="16" width="6" height="4" rx="1" fill="#1976d2"/>
         </svg>
       </div>
-      <h1>Selamat Datang di <span class="brand">PBK Movie App</span></h1>
+      <h1>Selamat Datang di <span class="brand">Poys Movie</span></h1>
       <p class="subtitle">Temukan, simpan, dan kelola film favoritmu dengan mudah dan cepat!</p>
       <router-link to="/films" class="button explore-button">
         <span class="icon">🍿</span> Jelajahi Daftar Film
